@@ -1,0 +1,17 @@
+.Equals : a==b
+.Not Equals : a != b (!exclamation)
+.Less than : a < b
+.Less than and equals to : a <= b
+.Grater than : a > b
+.Grater than and equals : a >= b
+
+git config --global user.name "Your Name"
+git config --global user.email "youremail@domain.com"
+
+git push origin master
+
+install Django
+
+= djnago-admin startproject myDjango
+= cd .\myDjangoProj\
+= python manage.py runserver
