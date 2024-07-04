@@ -8,6 +8,8 @@
 git config --global user.name "Your Name"
 git config --global user.email "youremail@domain.com"
 
+get status
+git commit -m "Code Added"
 git push origin master
 
 install Django
