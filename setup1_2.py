@@ -1,17 +1,16 @@
 import subprocess
 
 # Define the commands to be executed step-by-step
+
 commands = [
-    "adb shell mount -o rw,remount /system",
-    "adb shell ls -l /mnt/media_rw/40F465C7F465C030/Akiba_new_setup/",  # List directory contents to verify the script exists
-    "adb shell ls -l /mnt/media_rw/40F465C7F465C030/Akiba_new_setup/dev900.ovpn",  # Check existence and permissions of dev900.ovpn
-    "adb shell ls -l /mnt/media_rw/40F465C7F465C030/Akiba_new_setup/debian_stretch_rootfs_release_20200309.tgz",  # Check existence and permissions of debian_stretch_rootfs_release_20200309.tgz
-    "adb shell sh /mnt/media_rw/40F465C7F465C030/Akiba_new_setup/1_Kandel_setup.sh"  # Use full path to the script
+    "mount -o rw,remount /system",
+    "adb shell d /mnt/media_rw/40F465C7F465C030/Akiba_new_setup/ h 1_Kandel_setup.sh"
+    
 ]
 
 # Function to run a command and capture its output
 def run_command(command):
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(f"adb shell \"{command}\"", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     return process.returncode, stdout.decode(), stderr.decode()
 
